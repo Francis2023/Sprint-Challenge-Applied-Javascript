@@ -24,28 +24,30 @@ const ArticlePromise = axios.get('https://lambda-times-backend.herokuapp.com/art
 
 ArticlePromise.then(response => {
     
-    console.log(response)
-    response.data.articles.javascript.forEach(headline=>{
-        cardContainer.appendChild(card(headline))
+    
+
+   console.log(response)
+   
+   response.data.articles.javascript.forEach(headline=>{
+       cardContainer.appendChild(card(headline))
+       })
+     response.data.articles.bootstrap.forEach(headline=>{
+       cardContainer.appendChild(card(headline))
         })
-    response.data.articles.bootstrap.forEach(headline=>{
-        cardContainer.appendChild(card(headline))
-         })
     response.data.articles.technology.forEach(headline=>{
         cardContainer.appendChild(card(headline))
          })
-         response.data.articles.jquery.forEach(headline=>{
-            cardContainer.appendChild(card(headline))
-             })
-             response.data.articles.node.forEach(headline=>{
-                cardContainer.appendChild(card(headline))
-                 })
-    })
+        response.data.articles.jquery.forEach(headline=>{
+           cardContainer.appendChild(card(headline))
+            })
+           response.data.articles.node.forEach(headline=>{
+             cardContainer.appendChild(card(headline))
+              })
+ })
 
 
 function card(url){
-     console.log(url)
-     console.log(typeof url)
+    
     let cards = document.createElement('div');
     let headlines = document.createElement('div');
     let authors = document.createElement('div');
@@ -68,44 +70,13 @@ function card(url){
     imgContainer.appendChild(authorsImg);
     
     
-    //function headlinefun(url){
-     //   for (i = 0; i < input.length; i++){
-     //       for (j = 0; j < input[i].length; j++){
-     //           return input[i][j].headline
-     //       }
-     //   }
-    //}
+    
     
     headlines.textContent = url.headline;
-      
-    console.log(headlines)
     authorsImg.src = url.authorPhoto;
     authorsName.textContent = url.authorName;
 
     return cards
 }
 
-
-
 const card1 = card();
-
-
-
-
-
-
-
-//cardContainer.appendChild(card1);
-
-//console.log (response)
-
-   // console.log(typeof response.data.articles)
-   // let newArray = Object.values(response.data.articles)
-   // console.log(response.data.articles.bootstrap[0].headline)
-   // console.log(newArray)
-   // newArray.forEach(url => {
-
-  //    const newCard = card(url)
-   ////   card1.appendChild(newCard)
-   // })
-//})
